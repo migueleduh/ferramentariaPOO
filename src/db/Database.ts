@@ -3,7 +3,7 @@ import Professional from "../model/Professional";
 import Tool from "../model/Tool";
 import User from "../model/User";
 
-export default class database{
+export default class Database{
     private tools:Tool[] = [];
     private users: User[] = [];
     private professionals: Professional[] = [];
