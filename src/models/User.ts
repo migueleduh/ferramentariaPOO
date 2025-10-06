@@ -1,9 +1,11 @@
 export default class User{
     private name: string = "";
     private active: boolean = true;
+    private email: string = "";
     
-    constructor(name: string){
+    constructor(name: string, email: string){
         this.name = name;
+        this.email = email;
     }
 
      public getName():string{

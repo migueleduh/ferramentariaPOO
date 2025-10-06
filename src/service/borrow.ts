@@ -1,4 +1,4 @@
-import Tool from "../model/Tool";
+import Tool from "../models/Tool";
 
 export default class borrow{
     

@@ -4,8 +4,8 @@ export default class Professional extends User{
     private registration: number = 0;
     private rule!:Rule;
 
-    public constructor(name:string, registration:number){
-        super(name);
+    public constructor(name:string, registration:number, email:string){
+        super(name,email);
         this.registration = registration;
 
     }

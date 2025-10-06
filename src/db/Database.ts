@@ -1,13 +1,13 @@
-import Movements from "../model/Movement";
-import Professional from "../model/Professional";
-import Tool from "../model/Tool";
-import User from "../model/User";
+import Movement from "../models/Movement";
+import Professional from "../models/Professional";
+import Tool from "../models/Tool";
+import User from "../models/User";
 
 export default class Database{
     private tools:Tool[] = [];
     private users: User[] = [];
     private professionals: Professional[] = [];
-    private movements: Movements[] = [];
+    private movement: Movement[] = [];
 
     constructor(){
         
@@ -21,8 +21,11 @@ export default class Database{
         this.tools.push(tool);
     }
 
-    public insertMovement(movement:Movements){
-        this.movements.push(movement);
+    public insertMovement(movement:Movement){
+        this.movement.push(movement);
     }
 
+    public selectAllUsers():User[]{;
+        return this.users;
+    }
 }
