@@ -10,9 +10,7 @@ export default class UserController{
         this.db.insertUser(user);
     }
 
-    public listAll():string{
-        this.db.selectAllUsers;
-    }
+ 
 
     
 }
