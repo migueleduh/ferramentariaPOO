@@ -4,7 +4,13 @@ class Tool {
     constructor(name) {
         this.name = "";
         this.status = "Disponível";
+        this.brand = "";
         this.name = name;
+    }
+    getDescription() {
+        return "nome: " + this.name +
+            "status: " + this.status +
+            "marca" + this.brand;
     }
     getName() {
         return this.name;

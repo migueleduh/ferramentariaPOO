@@ -1,26 +1,44 @@
+import { Type } from "mysql2/typings/mysql/lib/parsers/typeCast";
 import Professional from "./Professional";
 import Tool from "./Tool";
-import User from "./User";
+import ToolMovement from "./MovementTool";
+import { TypeMovement } from "./TypeMovement";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, CreateDateColumn, OneToMany } from "typeorm";
+import MovementTool from "./MovementTool";
 
-export default class Movements{
-    private description: string = "";
-    private tool: Tool;
-    private professional: Professional;
+
+@Entity({ name: "movement" })
+export default class Movement{
+    @PrimaryGeneratedColumn()
+    private id!: number;
+
+    @ManyToOne(() => Professional)
+    @JoinColumn({ name: "professional_id" }) // Coluna física "professional_id"
+    public professional!: Professional; // (public para o @OneToMany dele)
+  
+
+// --- DADOS DO CARRINHO ---
+    @Column({
+        type: "enum",
+        enum: TypeMovement,
+    })
+    private type!: TypeMovement; // 'saida' ou 'entrada'
+
+    @CreateDateColumn()
     private date: Date; 
 
-    constructor(description: string, tool: Tool, professional: Professional,date: Date){
-        this.tool = tool;
-        this.professional = professional;
-        this. description = description;
+    @OneToMany(() => MovementTool, (movementTool) => movementTool.movement)
+    private movementTool!: MovementTool[];
+
+    constructor( professional: Professional,date: Date, type: TypeMovement){
+        this.professional = professional;     
         this.date = date;
+        this.type = type;
     }
 
-    public getDescription():string{
-            return this.description;
+    public getId(): number {
+        return this.id;
     }
 
-    public setDescription(description: string):void{
-         this.description = description;
-    }
-
+    
 }

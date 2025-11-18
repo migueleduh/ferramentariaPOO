@@ -48,7 +48,7 @@ export default class UserView{
             const email = readlineSync.question("Email do Usuario: ");
 
         try {
-              this.controller.createUser(name, email);
+              this.controller.addUser(name, email);
                console.log("✅ Usuário cadastrado com sucesso!");
             } catch (error: any){
                 console.error(`❌ Erro ao cadastrar usuário: ${error.message}`);

@@ -1,16 +1,15 @@
 import User from "../models/User";
-import database from "../db/Database";
 import Database from "../db/Database";
+import UserService from "../service/UserService";
 export default class UserController{
-    private readonly db = new Database();
-
-
-    public createUser(name: string, email: string):void{
-        const user = new User(name,email);
-        this.db.insertUser(user);
+    private service: UserService;
+    
+    constructor(){
+        this.service = new UserService();
     }
 
- 
+    public addUser(name: string, email:string){
+        this.service.
+    }
 
-    
-}
+}   

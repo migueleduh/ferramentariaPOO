@@ -16,5 +16,8 @@ class Professional extends User_1.default {
     setRegistration(registration) {
         this.registration = registration;
     }
+    getDescription() {
+        return super.getDescription() + " Especialidade: " + this.specialty;
+    }
 }
 exports.default = Professional;

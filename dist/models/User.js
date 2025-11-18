@@ -5,8 +5,12 @@ class User {
         this.name = "";
         this.active = true;
         this.email = "";
+        this.password = 0;
         this.name = name;
         this.email = email;
+    }
+    getDescription() {
+        return "Nome: " + this.name + " Email: " + this.email + " Status: " + this.active;
     }
     getName() {
         return this.name;
